@@ -1,0 +1,37 @@
+//////////////////////////////////////////////////////////
+Sparks simulation for Dreamworks animation fx challenge 
+
+Harsha Vardhan Kode
+Computer science and engineering
+IIT Bombay
+
+////////////////////////////////////////////////////////////
+
+To compile : use 'make'
+
+To run ./scene [mode] [renderframe]
+
+mode can be either 0,1 or 2
+0: Renders sparks with just ground collisions and splitting on collision(L0,L1 and L2)
+1: Renders sparks with collisions with the cube primitive (L3)
+2: Renders sparks with collisions with the stanford bunny (L4)
+
+Note that realtime animation for mode 2 will be slow
+
+Renderframe flag is set to 'r', the frames will be output to images/mode<modenumber>/ if it exists, for combining later
+
+glm library was used for matrix and vector handling
+
+/////////////////////////////////////////////////////////////
+Description of spark mechanics:
+
+Air resistance and gravity was modelled. Air resistance acts only when sparks have velocity greater than a particular value. On colission, sparks randomly split into two new sparks, preserving momentun perpendicular to the normal direction. Each spark has a lifetime and slowly fades away as it reaches 0. 'sparks.cpp' file contains the code correspondnig to spark mechanics
+
+Collision mechanics:
+
+At each instant, each spark's trajectory was checked if it intersected with any of the triangles in the objects (objects with non triangular faces were also split into triangles in the object class). 'object.cpp' file contains code corresponding to collision mechanics
+
+/////////////////////////////////////////////////////////////////
+
+
+
